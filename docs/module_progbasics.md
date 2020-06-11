@@ -5,12 +5,52 @@
 ### Data structures
 
 #### What is the purpose of a list (array in some programming languages) data structure? Name some methods of it!
+
+Python offers a range of compound data types often referred to as sequences. List is one of the most frequently used and very versatile data types used in Python.
+
+METHODS: 
+List index, negative indexing,
+slicing - range of elements separated by a colon (:),
+adding elements - one element: append(), several elements: to the end of the list: extend(), 
+
+to insert multiple elements into the list: insert(),
+delete or remove elements - del() - even can delete one or more elements (referring to them by their index), 
+
+remove() - , clear() - empties the whole list, pop() - removes the last item if the index is not provided
+List methods:
+List comprehension - a method to create a new list:
+e.g pow2 = [2**x for x in range(10)]
+
 #### What is the difference between a list/array and a set?
+
+List: a collection which is ordered and changeable. Allows duplicate members.
+Array: a variable, which can hold more than one value at a time
+Set: sequence of unique items (they cannot have duplicates), ordering of the elements is arbitrary 
+
 #### What is the purpose and methods of a dictionary/map data structure?
+
+DICTIONARY: in a ~ an item has a key and a corresponding value that is expressed as a pair(key: value) in curly brackets({}). 
+
+While the values can be of any data type and can repeat, keys must be of immutable types (string, number or tuple with immutable elements) and must be unique.
+
+Method to query information in the dictionary:
+
+Method to create new dictionary:
 
 ### Algorithms
 
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
+
+def recur_fibo(n):
+
+​    if n <= 1:
+
+​        return n
+
+​    else:
+
+​        return(recur_fibo(n-1) + recur_fibo(n-2))
+
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
 #### What do we call an *in-place* sort?
