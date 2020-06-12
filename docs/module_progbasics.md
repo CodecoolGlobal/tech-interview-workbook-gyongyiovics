@@ -88,8 +88,18 @@ def recur_fibo(n):
 ### Debugging
 
 #### What techniques can you use while debugging a program in Python?
+
+Reading the program, and understanding what it does (filter semantic issues if there is any), running the program (in order to see if there is a typo or a syntactic error), using tools like a debugger (e.g. Thonny).
+
 #### What does step over, step into and step out mean while using the debugger?
+
+If we start the debugger (e.g. the built-in debugger in Visual Studio Code), the debug console panel is displayed and shows the debugging output, and the debug status appears in the status bar:
+
+Through the debug toolbar we can select a line in our code, and step into that to see what the issue is. We can also step over an issue, leaving it as it is and step out of the current line if we are done or corrected the error.
+
 #### How can you start to debug a program from a certain line using the debugger?
+
+I can step into the line (a red dot appears beside the line I am interested in), run the program with the debugger, which will stop if there is an issue, and show the errors on the status bar. 
 
 ### Version control
 
@@ -164,6 +174,13 @@ GITHUB: ~ is a web-based service for version control using git.
 ## Software Development Methodologies
 
 #### What is the main goal of a retrospective meeting?
+
+A retrospective is a meeting held by a software development team at the end of a project or process to discuss success and failure and future improvements after each iteration.
+Sticky notes written after or during the sprint, with:
+What went well?
+Where to improve?
+S.M.A.R.T. action items (specific, measurable, achievable, relevant, time based)
+scrum: discuss changes & implement changes results in constant improvements
 
 ## Programming environment
 
