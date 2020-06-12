@@ -94,12 +94,57 @@ def recur_fibo(n):
 ### Version control
 
 #### What are the advantages of using a version control system?
+
+I can keep the older versions if there is a step I want to ignore, or go back.
+I can see all the versions I have created of the program, and keep track of them.
+Others can reach my creations and I can reach other peoples creations as well.
+
 #### What is the difference between the working directory, the staging area and the repository in git?
+
+3 sections in a git project:
+working directory: ~ is a single checkout of one version of the project. These files are pulled out of the database and placed on a disk for you to use or modify.
+
+staging area: ~ is a file, in your git directory, that shows data about what will go into your next commit, other name for it is "index".
+repository: ~ is where git stores the metadata and object database for your project. This is what is copied, when you clone a repository from another computer.
+
 #### What are remote repositories in git?
+
+A remote in Git is a common repository that all team members use to exchange their changes. In most cases, such a remote repository is stored on a code hosting service like GitHub or on an internal server. 
+In contrast to a local repository, a remote typically does not provide a file tree of the project's current state.
+
 #### Why does a merge conflict occur?
+
+Because it happens if there are 2 or more different updates on the same file at the same time (from different users). Therefore they will not match and conflict each other.
+
+We will have to resolve this merge conflict by adding a new commit before we can merge the branches again.
+
+(Navigate to the local git repository, generate a list of the files affected by the merge conflict, open the file with a text editor (vim), delete the conflict markers (<<<<<<<, =======, >>>>>>>>) and make changes in the final merge. Add or stage the changes, commit them.
+
 #### Through what series of commands could you put a new file into a remote repository connected to your existing local repository?
+
+Through pulling and pushing.
+
+This command will pull the file to my local repository 
+
+git pull --> https:// www.code.com/myfile
+
+git add <myfile>
+
+git commit -m "message"
+
+git push (or git pull origin master and then git push origin master)
+
+These command will push back my updated document to the remote repository
+
 #### What does it mean atomic commits and descriptive commit messages?
+
+Atomic commits: as short as possible (e.g. name of a finalized function in a code)
+Descriptive commit messages: has a title and a body (separated by an empty line), it is good to use concise commits, with punctuation, right grammar
+
 #### What’s the difference between git and GitHub?
+
+GIT: version control system. ~ helps us manage our project files.
+GITHUB: ~ is a web-based service for version control using git.
 
 ## Software design
 
