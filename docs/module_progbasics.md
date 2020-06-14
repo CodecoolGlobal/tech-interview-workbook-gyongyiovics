@@ -23,9 +23,11 @@ e.g pow2 = [2**x for x in range(10)]
 
 #### What is the difference between a list/array and a set?
 
-List: a collection which is ordered and changeable. Allows duplicate members.
-Array: a variable, which can hold more than one value at a time
-Set: sequence of unique items (they cannot have duplicates), ordering of the elements is arbitrary 
+List: a collection which is ordered and changeable. Allows duplicate members. Indexing starts with zero. lists are written with square brackets ( []).
+
+Array: An array can hold many values under a single name, and you can access the values by referring to an index number. Python does not have built-in support for Arrays, but they can be used as lists.
+
+Set: sequence of unique items (they cannot have duplicates), ordering of the elements is arbitrary . ~ s are written with curl brackets ({}). 
 
 #### What is the purpose and methods of a dictionary/map data structure?
 
@@ -33,9 +35,25 @@ DICTIONARY: in a ~ an item has a key and a corresponding value that is expressed
 
 While the values can be of any data type and can repeat, keys must be of immutable types (string, number or tuple with immutable elements) and must be unique.
 
-Method to query information in the dictionary:
+Method to query information in the dictionary: 
 
-Method to create new dictionary:
+get() - finds a key if it is in the dictionary
+
+e.g.: my_dict['name'] means the same as my_dict.get('name')
+
+keys(), values() - returns the keys or values of a dictionary 
+
+items() - loops through both keys and values
+
+pop(), remove() - removes items from the dictionary
+
+Method to create new dictionary: 
+
+copy() - returns a copy of a dictionary 
+
+clear() - removes all items from a dictionary 
+
+if we want to merge 2 dictionaries, we can use the + sign: dict_a + dict_b = dict_c (where the items of dict_c are the items from dict_a and items from dict_b)
 
 ### Algorithms
 
@@ -52,15 +70,97 @@ def recur_fibo(n):
 ​        return(recur_fibo(n-1) + recur_fibo(n-2))
 
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
+
+def max(values_list):
+    values_list = [1,2,3,4,5,3]
+    max_value = None
+    for value in values_list:
+        if not max_value:
+            max_value = value
+        elif value > max_value:
+            max_value = value
+    return max_value
+
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
+
+list = [15, 9, 55, 41, 35, 20, 62, 49]
+
+def list_average(list):
+
+​    sum = 0
+
+​    count = 0
+
+​    for i in list:
+
+​        sum = sum + i
+
+​        count = count + 1
+
+​    avg = sum / count
+
+​    return avg
+
+print("The average is, " + str(list_average(list)))
+
 #### What do we call an *in-place* sort?
+
+numbers = [1, 2, 56, 32, 51, 2, 8, 92, 15]
+i = 0
+j = 0
+lenght = len(numbers)
+
+for i in range(lenght):
+    for j in range(1, lenght - i):
+        if numbers[j-1] > numbers[j]:
+            (numbers[j-1], numbers[j]) = (numbers[j], numbers[j-1])
+
 #### Explain an algorithm which sorts a list!
 
 ### Programming paradigms - procedural
 
 #### What is the call stack?
+
+CALL STACK: in computer science, ~ is a stack data structure that stores information about the active subroutines of a computer program.
+
 #### What is “Stack overflow”?
+
+STACK OVERFLOW: 
+
+1. ~ is a question and answer site for professional and enthusiast programmers.
+
+2. ~ (as a general term) occurs in software, if the call stack pointer exceeds the stack bound.
+   This can happen e.g. when there is an excessively deep or infinitive recursion in a program
+
+   e.g.
+   def foo():
+   	return foo()
+
 #### What are the main parts of a function?
+
+1. In Python, a function is a group of related statements that performs a specific task.
+
+   Functions help break our program into smaller and modular chunks. As our program grows larger and larger, functions make it more organized and manageable.
+
+   Furthermore, it avoids repetition and makes the code reusable.
+
+   Syntax of a function:
+
+   def function_name(parameters):
+
+   ​	statement
+
+   ​	return 
+
+Above shown is a function definition that consists of the following components.
+
+1. Keyword "def" that marks the start of the function header.
+2. A function name to uniquely identify the function. 
+3. Parameters (arguments) through which we pass values to a function. They are optional.
+4. A colon (:) to mark the end of the function header.
+5. Optional documentation string (docstring) to describe what the function does.
+6. One or more valid python statements that make up the function body. Statements must have the same indentation level (usually 4 spaces).
+7. An optional return  statement to return a value from the function.
 
 ### Programming languages - Python  
 #### How do you use a dictionary in Python?
@@ -161,7 +261,12 @@ GITHUB: ~ is a web-based service for version control using git.
 ### Clean code
 
 #### What does clean code mean?
+
+All the variable names, function names are placed correctly in order, they are readable, d.r.y, naming is clear: variable names are using nouns, function names use verbs
+
 #### What steps do we usually do during a clean code refactoring?
+
+Make the code clearer and easier to read. e.g. if there is a magic number, we can give a name to it.
 
 ### Error handling
 
@@ -187,13 +292,89 @@ scrum: discuss changes & implement changes results in constant improvements
 ### Unix
 
 #### What is UNIX and what is Linux?
+
+UNIX: the ~ OS was born in the 1960s. Ken Thompson began to develop it, it is a proprietary OS. The ~ works on CLI (Command Line Interface). Popular in companies, universities.
+
+LINUX: ~ is an OS, built by Linus Torvalds in 1991. The name comes from the Linux kernel. It is the software on a computer which enables applications to perform some functions.
+Support multitasking
+Programs consist of one or more processes, and each process have one or more threads
+It can easily co-exists along with other Operating systems.
+It can run multiple user programs
+Individual accounts are protected because of appropriate authorization
+Linux is a replica of UNIX but does not use its code.
+
+UBUNTU: ~ is a Linux distribution based on Debian mostly composed of free and open-source software. It is released in every 6 months (newest version is "Focal Fossa", v20.04)
+
+("Ubuntu" means (after the Nguni phylosophy): "humanity to others. I am what I am because of who we all are.") 
+
+Debian: "Deb and Ian" - from Ian Murdoch; collection of linux extensions
+
 #### What do we call the shell in Linux?
+
+SHELL: ~  origins: "C Shell" sounds like "seashell".
+~ is the connection between the kernel and the user.
+e.g. GUI - graphical user interface (Windows)
+CLI - command line interface (Linux)
+
 #### What does root means in a Linux environment?
+
+ROOT:
+The ~ is the user name or account that by default has access to all commands and files on a Linux or other Unix-like operating system. It is also referred to as the root account, root user, and the superuser.
+
 #### How do you access your personal files in Linux?
+
+Every **user** on a **Linux** system, whether created as an account for a real human being or associated with a particular service or system function, is **stored** in a file called "/etc/passwd". The "/etc/passwd" file contains information about the **users** on the system.
+
 #### How can you install an application in Linux?
+
+I can install them with the 'sudo', super user.
+
+To install from a software repository, there's usually a command:
+
+$ sudo apt update
+
+$ sudo apt install python 3.8.
+
+If we search for installing something with ubuntu, there is usually a step-by-step description on how to do it.
+
 #### What is package management in Linux, what are repositories?
+
+Package management is a method of installing and maintaining (which includes updating and probably removing as well) software on the system. In the early days of **Linux**, programs were only distributed as source code, along with the required manual pages, the necessary configuration files, and more.
+
 #### How do you navigate in the filesystem with the command line?
+
+Commands for files and directories:
+
+1. To navigate into the root directory, use "cd /"
+2. To navigate to your home directory, use "cd" or "cd ~<foldername>"
+3. To navigate up one directory level, use "cd .."
+4. To navigate to the previous directory (or back), use "cd -"
+
 #### What does the following commands do: mkdir, rm, cat, cp, touch?
+
+mkdir: creates a new directory
+
+rm: removes files and directories
+cat: creates files with the text I type in the terminal
+cp: copy files
+touch: creates empty files
+
 #### How can you look up what does a command do in Linux if you have no internet connection?
+
+I can use the $ help, man (for manual), info, or whatis
+
 #### What does the following commands do: head, tail, more, less?
+
+head: displays the first ten lines of a file, unless otherwise stated.
+tail: display the last part of the file
+more: to view a text file one page at a time, (press spacebar to go to the next page)
+less: you can navigate the page up/down using the less command and not possible in more command. You can search a string in ~ command
+
 #### How do you download a file from internet using the terminal?
+
+Using the 'wget' command
+
+e.g.:
+
+$ wget https://askubuntu.com/questions/207265/how-to-download-a-file-from-a-website-via-terminal
+
