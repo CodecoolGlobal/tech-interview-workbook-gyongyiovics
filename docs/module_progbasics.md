@@ -246,21 +246,21 @@ The else and elif clauses can be used, if we want to branch the executions becau
 
 e.g.
 
-if <expr>:
+if 'expression1':
 
-​	<statement>
+​	'statement1'
 
-elif <expr>:
+elif 'expression2':
 
-​	<statement>
+​	'statement2'
 
-elif <expr>:
+elif 'expression3':
 
-​	<statement>
+​	'statement3'
 
 else:
 
-​	<statement>
+​	'statement4'
 
 #### What are different types of arguments in Python?
 
@@ -553,10 +553,46 @@ Make the code clearer and easier to read. e.g. if there is a magic number, we ca
 ### Error handling
 
 #### What is exception handling?
+
+We can use the try and except blocks in order to catch exceptions in our code without crashing it.
+
+Unlike errors (syntactic or semantic), exceptions can be of many types that occur during the execution and are not unconditionally inoperable.
+
+e.g. if there is a division written in the program, and there is an intervall which includes zero, we can catch and avoid the division by zero with handling it as an exception (ZeroDivision).
+
+There can also be exceptions like: ValueError, RangeError.
+
 #### What are the basics of exception handling in Python?
+
+The steps of exception handling in python are:
+
+try: to run the code
+
+except: execute the code when there is an exception
+
+else: no exceptions? Then run the code.
+
+finally: Always run the code
+
 #### In which case should we catch an exception? Why?
+
+We can catch them in order to keep the code running, e.g. do not let it be stopped by an exception (e.g. there is an input and we are expecting a number, there can be an exception if the user enters a letter)
+
 #### What can/should we do with an exception in the ‘except’ block?
+
+We can give an exception statement.
+
+e.g. 
+
+print("you tried to divide by zero")
+
 #### What does the else and finally statement do in a try-except block in Python?
+
+Else and finally statements refer to the opposite case of the exception.
+
+ Else refers to the case if the exception is not true (and the else block will be executed).
+
+Finally is irrespective of whether there is an exception or not, that block of code will always be executed.
 
 ## Software Development Methodologies
 
