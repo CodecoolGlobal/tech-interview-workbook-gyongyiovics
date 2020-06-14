@@ -105,6 +105,14 @@ print("The average is, " + str(list_average(list)))
 
 #### What do we call an *in-place* sort?
 
+sort() - is a list method that modifies the list in place, 
+
+sorted() - is a built-in function that creates a new list without touching the original one.
+
+There are other methods beside these.
+
+e.g. the "bubble-sort", which sorts the list element-by-element
+
 numbers = [1, 2, 56, 32, 51, 2, 8, 92, 15]
 i = 0
 j = 0
@@ -116,6 +124,26 @@ for i in range(lenght):
             (numbers[j-1], numbers[j]) = (numbers[j], numbers[j-1])
 
 #### Explain an algorithm which sorts a list!
+
+def bubble_sort(array):
+
+​	n = len(array)
+
+​	for i in range(n):
+
+(create a flag that will allow the function to terminate early if there's nothing left to sort already_sorted = True. Start looking at each item of the list one by one, comparing it with its adjacent value. With each iteration, the portion of the array that you look at shrinks because the remaining items have already been sorted.)
+
+​		for j in range(n - i - 1):
+
+​			if array[j] > array[j+1]:
+
+​			(if the item you are looking at is greater than its adjacent value, then swap them)
+
+​				array[j], array[j+1] = array[j+1], array[j]
+
+​				(since you had to swap two elements, set the 'already_sorted' flag to 'False', so the algorithm does not finish prematurely. IF there were no swaps during the last iteration, the array is already sorted, and you can terminate if already _sorted: break)
+
+​	return array 
 
 ### Programming paradigms - procedural
 
@@ -164,24 +192,278 @@ Above shown is a function definition that consists of the following components.
 
 ### Programming languages - Python  
 #### How do you use a dictionary in Python?
+
+DICTIONARY: A ~ is a collection which is unordered, changeable and indexed. In Python dictionaries are written with curly brackets("{}"), and they have keys and values.
+
+You can access the items of a dictionary by referring to its key name, inside square brackets:
+thisdict = {"brand": "Ford", "model":"Mustang","year": 1964}
+
+referring to a "key":
+for x in thisdict:
+	print(x)
+
+referring to a "value":
+for x in thisdict:
+	print(thisdict[x]) 
+	
+referring to both:
+
+for x, y in thisdict.items():
+	print(x,y)
+	
+adding items to a dictionary:
+
+thisdict {"size" : 56}
+
+thisdict["color"] = "red"
+
+thisdict = {"color": "red", "size": 56}
+
+removing items from a dictionary:
+
+thisdict.pop("model")
+
 #### What does it mean that an object is immutable in Python?
+
+Everything in Python (argument, variable, list, etc) is an object, and all objects can be either **mutable** or **immutable**.
+
+A **mutable** object can be changed after it is created, and an **immutable** object can’t.
+
+mutable objects: lists, dictionaries, sets
+immutable objects: bools, integers, floats, tuples, strings, (frozensets)
+
 #### What is conditional expression in Python?
+
+if Statement:
+
+e.g. if <expression>:
+
+​	<statement>
+
+The expression is evaluated in Boolean contexts - if the expression is true, then the statement will  be executed. If expression is false, then statement is skipped and not executed.
+
+The else and elif clauses can be used, if we want to branch the executions because there are several alternatives. Elif clause can be  used several times after the if expression, and there always has to be an else statement as well.
+
+e.g.
+
+if <expr>:
+
+​	<statement>
+
+elif <expr>:
+
+​	<statement>
+
+elif <expr>:
+
+​	<statement>
+
+else:
+
+​	<statement>
+
 #### What are different types of arguments in Python?
+
+TYPES: 
+
+1. default arguments:
+   e.g. def myfunct(variable, message = "Hellobello")
+
+message is a "default" argument, as it has a given a default value.
+However if there is another value in the function, it overwrites the default one.
+Once we have a ~, all the arguments to its right have to have default values.
+
+2. keyword arguments: when we call a function with some values, these values get assigned to the arguments according to their position. When we call functions in this way, the order (position) of the arguments can be changed.
+
+3. positional arguments:
+
+   e.g.
+
+   greet("Bruce", msg = "How do you do?")
+
+   in this case, "Bruce" is a positional argument in the greet function.
+
+   We can mix it with a keyword argument, but we must keep in mind that the order of the arguments must be:
+
+   positional argument and then keyword argument (otherwise python will not understand the function and there will be an error message)
+
+4. arbitrary arguments: if we do not know in advance the number of arguments that will be passed into a function, we can use arbitrary number of arguments.
+
+   e.g. 
+
+   names = ["Monica", "Luke", "Steve", "John"]
+
+   def greet(*names):
+
+   ​	for name in names:
+
+   ​		print("Hello", name)
+
+   greet("Monica", "Luke", "Steve", "John")
+
 #### What is variable shadowing? (context: variable scope)
+
+If a variable is given outside of a function and there is another variable with the same name, the latter can overshadow the "outside" variable, if both are used in the function. To avoid this situation, we can give a different name to the "inside" variable or we can add "global" to the "outside" variable's name.
+
 #### What can happen if you try to delete/drop/add an item from a List, while you are iterating over it in Python?
+
+Every item in a list lives at its own unique index; which are in order, starting from 0. If we remove an item, any item with an index greater than the one we've removed has now been shifted down. Therefore, if we remove an item during a for loop, the (e.g. with the index number 0), the item at index 1 becomes the item at index 0.
+
 #### What is the "golden rule" of variable scoping in Python (context: LEGB)? What is the lifetime of variables?
+
+A variable is only available from inside the region it is created. This is called **scope**. There are four major types of variable scope and is the basis for the LEGB rule:
+
+L = local: Whenever you define a variable within a function, its scope lies ONLY within the function. it is accessible from the point at which it is defined until the end of the function and exists for as long as the function is executing.
+
+E = enclosed: it happens, when we write a function with a nested function. In this case the "outside" function's variable has a larger scope than the "inner" function's, therefore it can be accessed from the inner function, but the variable defined in the inner function cannot be accessed through the outside function.
+
+G = global: Whenever a variable is defined outside any function, it becomes a global variable, and its scope is anywhere within the program. Which means it can be used by any function
+
+B = built-in: this is the widest scope. All the special reserved keywords fall under this scope. (e.g. pi in math)
+
+lifetime of variables: and enclosed variable lifetime is between it is defined and the execution of the inner function
+
 #### If you need to access the iterator variable after a for loop, how would you do it in Python?
+
+An iterable is an object capable of returning its members one by one. Said in other words, an iterable is anything that you can loop over with a for loop in Python.
+
+e.g.
+
+list = [15, 9, 55]
+
+sum = 0
+
+for i in list:
+
+​	sum = sum + i
+
+iterable = > i is for the indexes of the elements of the list
+
 #### What type of elements can a list contain in Python?
+
+Lists can have any number of items and they may be of different types (string, integer, float, another list, dictionary)
+
+If a list has an item which is also a list, that is called a nested list.
+
 #### What is slice operator in Python and how to use?
+
+The slice object is used to slice a given sequence (string, bytes, tuple, list or range) or any object which supports sequence protocol.
+
+The syntax of slice() is:
+
+slice(start, stop, step)
+
+parameters:
+
+start (optional) - Starting integer where the slicing of the object starts. Default to `None` if not provided.
+
+stop - Integer until which the slicing takes place. The slicing stops at index (stop - 1), and the element at the stop index is not included.
+
+step (optional) - Integer value which determines the increment between each index for slicing. Defaults to  "None" if not provided.
+
 #### What arithmetic operators (+,*,-,/) can be used on lists in Python? What do they do?
+
+Only + and *.
+
+e.g. for +:
+
+list_one = [1,2,3]
+
+list_two = [4,5,6]
+
+list_three =list_one + list_two
+
+list_three = [1,2,3,4,5,6] - concatenated version of list_one and list_two
+
+e.g. for *:
+
+list = [3,4,5]
+
+list_2 = 4*list
+
+list_2 = [3,4,5,3,4,5,3,4,5,3,4,5] - that means, multiplication multiplies all of the elements of the same list and adds them up in another list
+
 #### What is the purpose of the in and not in membership operators in Python?
+
+It is to check is something is or is not in the list.
+
 #### What does the + operator mean when used with strings in Python?
+
+They concatenate the text, therefore add up the elements of the string
+
 #### Explain f strings in Python?
+
+Every **f-string** statement consists of two parts, one is character **f** or **F**, and the next one is a string which we want to format. The string will be enclosed in **single**, **double**, or **triple** quotes.
+
+e.g.
+
+f'"type some text here"
+
+e.g. with variables:
+
+name = "Gizi"
+
+type_of_company = "Financial"
+
+print(f"{name} works for a {type_of_company} company.")
+
+Unlike format() method, in f-string we do not have to separate the variables from the text
+
+e.g. for format()
+
+print("{}, a computer science portal for geeks.".format(GeeksforGeeks))
+
 #### Name 4 iterable types in Python!
+
+An **iterable** is any Python object capable of returning its members one at a time, permitting it to be iterated over in a for-loop.
+
+Familiar examples of iterables include lists, tuples, and strings - any such sequence can be iterated over in a for-loop. We will also encounter important non-sequential collections, like dictionaries and sets; these are iterables as well. It is also possible to have an iterable that “generates” each one of its members upon iteration - meaning that it doesn’t ever store all of its members in memory at once. We dedicate an entire section to generators, a special type of iterator, because they are so useful for writing efficient code.
+
 #### What is the difference between list/set/dictionary comprehension and a generator expression in Python?
+
+**Comprehension**: list-, set-, and dictionary comprehension - they return another list, set or dictionary.
+
+e.g. 
+
+dict1 = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5} 
+
+ double_dict1 = {k:v*2 for (k,v) in dict1.items()} print(double_dict1)
+
+
+
+**Generator expression**: it returns a different type of object:
+
+e.g.
+
+x = 1
+
+sum(x*x for x in range(10))
+
+returns a number: the  summary of the squares for numbers from 1 to 10 (285)
+
 #### Does the order of the function definitions matter in Python? Why?
+
+Yes. Especially if I want to call a function within another function. 
+
+E.g. in a game where there are different functions written for the different steps and there is a "main()" function, it is reasonable to write the main function at the end of the code, as it will use the other functions.
+
 #### What does unpacking mean in Python?
+
+We can  have a function that receives four arguments. We want to make call to this function and we have a list of size 4 with us that has all arguments for the function. If we simply pass list to the function, the call doesn’t work.
+
+e.g.
+
+my_list = [a,b,c,d]
+
+def fun(*my_list):
+
+​	print(a,b,c,d)
+
+In this case, the function unpacks the elements from my_list to return them separately. We can also use dictionaries this way, but with them ** is used.
+
 #### What happens when you try to assign the result of a function which has no return statement to a variable in Python?
+
+The return will be "None", because if there is no return statement (or just a return without an argument), an implicit return is added to the end of the function. 
 
 ## Software engineering
 
