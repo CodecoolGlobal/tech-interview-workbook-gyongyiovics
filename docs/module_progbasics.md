@@ -19,11 +19,12 @@ delete or remove elements - del() - even can delete one or more elements (referr
 remove() - , clear() - empties the whole list, pop() - removes the last item if the index is not provided
 List methods:
 List comprehension - a method to create a new list:
+
 e.g pow2 = [2**x for x in range(10)]
 
 #### What is the difference between a list/array and a set?
 
-List: a collection which is ordered and changeable. Allows duplicate members. Indexing starts with zero. lists are written with square brackets ( []).
+List: a collection which is ordered and changeable. Allows duplicate members. Indexing starts with zero. Lists are written with square brackets ( []).
 
 Array: An array can hold many values under a single name, and you can access the values by referring to an index number. Python does not have built-in support for Arrays, but they can be used as lists.
 
@@ -58,9 +59,8 @@ if we want to merge 2 dictionaries, we can use the + sign: dict_a + dict_b = dic
 ### Algorithms
 
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
-
-def recur_fibo(n):
 ```Python
+def recur_fibo(n):
 if n <= 1:
     return n
 else:
@@ -79,7 +79,7 @@ def max(values_list):
     return max_value
 ```
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
-
+```Python
 list = [15, 9, 55, 41, 35, 20, 62, 49]
 
 def list_average(list):
@@ -99,6 +99,7 @@ def list_average(list):
 ​    return avg
 
 print("The average is, " + str(list_average(list)))
+```
 
 #### What do we call an *in-place* sort?
 
@@ -110,6 +111,7 @@ There are other methods beside these.
 
 e.g. the "bubble-sort", which sorts the list element-by-element
 
+```Pyhton
 numbers = [1, 2, 56, 32, 51, 2, 8, 92, 15]
 i = 0
 j = 0
@@ -119,6 +121,9 @@ for i in range(lenght):
     for j in range(1, lenght - i):
         if numbers[j-1] > numbers[j]:
             (numbers[j-1], numbers[j]) = (numbers[j], numbers[j-1])
+```	    
+  
+	    
 
 #### Explain an algorithm which sorts a list!
 
