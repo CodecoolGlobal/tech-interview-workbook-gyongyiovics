@@ -60,17 +60,14 @@ if we want to merge 2 dictionaries, we can use the + sign: dict_a + dict_b = dic
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
 
 def recur_fibo(n):
-
-​    if n <= 1:
-
-​        return n
-
-​    else:
-
-​        return(recur_fibo(n-1) + recur_fibo(n-2))
-
+```Python
+if n <= 1:
+    return n
+else:
+    return(recur_fibo(n-1) + recur_fibo(n-2))
+```
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
-
+```Python
 def max(values_list):
     values_list = [1,2,3,4,5,3]
     max_value = None
@@ -80,7 +77,7 @@ def max(values_list):
         elif value > max_value:
             max_value = value
     return max_value
-
+```
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
 
 list = [15, 9, 55, 41, 35, 20, 62, 49]
