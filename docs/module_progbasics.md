@@ -61,10 +61,10 @@ if we want to merge 2 dictionaries, we can use the + sign: dict_a + dict_b = dic
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
 ```Python
 def recur_fibo(n):
-if n <= 1:
-    return n
-else:
-    return(recur_fibo(n-1) + recur_fibo(n-2))
+    if n <= 1:
+    	return n
+    else:
+        return(recur_fibo(n-1) + recur_fibo(n-2))
 ```
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
 ```Python
@@ -163,8 +163,10 @@ STACK OVERFLOW:
    This can happen e.g. when there is an excessively deep or infinitive recursion in a program
 
    e.g.
+   ´´Ṕython
    def foo():
    	return foo()
+´´´
 
 #### What are the main parts of a function?
 
@@ -294,7 +296,7 @@ Once we have a ~, all the arguments to its right have to have default values.
    e.g. 
 
    names = ["Monica", "Luke", "Steve", "John"]
-
+´´Ṕython
    def greet(*names):
 
    ​	for name in names:
@@ -302,6 +304,7 @@ Once we have a ~, all the arguments to its right have to have default values.
    ​		print("Hello", name)
 
    greet("Monica", "Luke", "Steve", "John")
+´´´
 
 #### What is variable shadowing? (context: variable scope)
 
@@ -330,7 +333,7 @@ lifetime of variables: and enclosed variable lifetime is between it is defined a
 An iterable is an object capable of returning its members one by one. Said in other words, an iterable is anything that you can loop over with a for loop in Python.
 
 e.g.
-
+´´Ṕython
 list = [15, 9, 55]
 
 sum = 0
@@ -338,6 +341,7 @@ sum = 0
 for i in list:
 
 ​	sum = sum + i
+´´
 
 iterable = > i is for the indexes of the elements of the list
 
