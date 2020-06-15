@@ -83,21 +83,13 @@ def max(values_list):
 list = [15, 9, 55, 41, 35, 20, 62, 49]
 
 def list_average(list):
-
 ​    sum = 0
-
 ​    count = 0
-
 ​    for i in list:
-
 ​        sum = sum + i
-
 ​        count = count + 1
-
 ​    avg = sum / count
-
 ​    return avg
-
 print("The average is, " + str(list_average(list)))
 ```
 
