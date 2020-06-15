@@ -237,11 +237,8 @@ mutable objects: lists, dictionaries, sets
 immutable objects: bools, integers, floats, tuples, strings, (frozensets)
 
 #### What is conditional expression in Python?
-
 if Statement:
-
 e.g. if <expression>:
-
 ​	<statement>
 
 The expression is evaluated in Boolean contexts - if the expression is true, then the statement will  be executed. If expression is false, then statement is skipped and not executed.
