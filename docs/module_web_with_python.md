@@ -118,14 +118,34 @@
 ### Networks
 
 #### What kind of HTTP status codes do you know?
+
+1xx - general information
+
+2xx - successful request
+
+3xx - redirection
+
+4xx - client error (404 - cannot be found)
+
+5xx - server error
+
 #### What is a API?
+
+Application Programming Interface
+
 #### What is REST API?
 #### What is JSON? When to use?
 #### What is TCP/IP? What layers does it define, what are they responsible for?
 #### What’s the difference between TCP and UDP?
 #### How does an HTTP Request look like? What are the most relevant HTTP header fields?
+
+Methods: HEAD, GET, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT
+
 #### How does an HTTP Response look like? What are the most relevant HTTP header fields?
 #### What is DNS? How does it work?
+
+Domain Name Server
+
 #### What is a web server?
 #### Explain the client-server architecture.
 #### What would you use a session for?
