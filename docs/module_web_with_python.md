@@ -56,6 +56,11 @@
 #### How to trigger an event in JavaScript?
 #### What is a callback function? Tell some examples of its usage.
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
+
+decorator is a function within a function
+
+@app.route("/")
+
 #### What is the difference between synchronous and asynchronous execution?
 
 ## Programming languages
@@ -63,26 +68,96 @@
 ### SQL
 
 #### How can you connect your application to a database server? What are the possible ways?
+
+postgresql
+
 #### When do you use the DISTINCT keyword in SQL?
+
+if I want to return (SELECT) different items in a database
+
 #### Talk about the behavior/goal of these base SQL clauses: WHERE, GROUP BY, HAVING, ORDER BY?
+
+WHERE is a filter, with which I can give a condition to a query
+
+GROUP BY 
+
+HAVING is a filter/condition
+
+ORDER BY is can order the query results by a number 
+
 #### What are aggregate functions in SQL? Give 3 examples.
+
+COUNT, SUM, AVG, MAX or MIN
+
 #### What kind of JOIN types do you know in SQL? Could you give examples?
+
+[
+SQL Joins - W3Schoolswww.w3schools.com › sql › sql_join](https://www.w3schools.com/sql/sql_join.asp)LEFT or RIGHT JOIN, FULL JOIN, INNER JOIN
+
 #### What are the constraints in sql?
 #### What is a cursor in SQL? Why would you use one?
+
+a QUERY in SQL through python, to fetch data from a database table
+
 #### What are database indexes? When to use?
+
+primary key, foreign key
+
 #### What are database transactions? When to use?
+
+BEGIN TRANSACTION, SET TRANSACTION, COMMIT, ROLLBACK, SAVEPOINT, RELEASE SAVEPOINT 
+
 #### What kind of database relations do you know? How to define them?
+
+one-to-one,
+
+one-to-many,
+
+many-to-many
+
 #### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
+
+SELECT * FROM address WHERE city = 'Miskolc'
+
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
+
+
+
+enable Change Tracking: 
+
+ALTER DATABASE AdventureWorks2012   SET CHANGE_TRACKING = ON   (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
+
+
+
+or by the git history
 
 ### HTML & CSS
 
 #### What’s the difference between XML, XHTML and HTML?
+
+XML
+
+XHTML
+
+HTML
+
 #### How to include a JavaScript file in a webpage?
+
+<script></script>
+
 #### How to include a CSS file in a webpage?
+
+<style></style>
+
 #### How to select an element using its id in CSS?
+
+#
+
 #### How to select elements using their class in CSS?
+.
+
 #### How to select elements which have the ‘alpha’ and ‘beta’ classes in CSS?
+
 #### How to select all list items in all ordered lists on the page in CSS?
 #### How to select elements using their attributes in CSS?
 #### What are UX and UI?
