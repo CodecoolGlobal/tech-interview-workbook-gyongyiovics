@@ -5,6 +5,7 @@
 ### Clean code
 
 #### Point out 5 suggestions, how to format an SQL query!
+
 #### What layers can you name in a simple web application?
 
 ### Error handling
@@ -16,7 +17,13 @@
 #### What is SQL injection? How to protect an application against it?
 #### What is XSS? How to protect an application against it?
 #### How to properly store passwords?
+
+hashed and salted
+
 #### What is HTTPS?
+
+HTTPS: Hypertext Transfer Protocol Secure
+
 #### What is encryption and decryption?
 #### What is hashing?
 #### What is the difference between encryption and hashing? When would you use which?
@@ -37,15 +44,65 @@
 
 ### Procedural
 #### How the CASE condition works in SQL?
+
+in Postgres:
+
+e.g.
+
+CASE 
+
+​	WHEN condition_1 THEN result_1
+
+​	WHEN conditon_2 THEN result_2
+
+​	....
+
+​	ELSE result_n
+
+END
+
+
+
 #### How the switch-case condition works in JavaScript?
 #### How to achieve a switch-case-like structure in Python?
 #### Explain variable scoping in Python!
 #### What’s the difference between const and var in JavaScript?
+
+var
+
+len
+
+const
+
 #### How the list comprehension looks like in Python?
+
+[expression for item in list]
+
+with an example:
+
+[letter for letter in 'human']
+
 #### How the “ternary expression” looks like in Python?
+
+a if condition else b
+
 #### How the ternary expression looks like in JavaScript?
+
+e.g.
+
+var age = 19;
+
+var canDrive = age > 16 ? 'yes' : 'no'
+
+In this case, the output is 'yes', as the statement is true: 19 is bigger than 16.
+
 #### How to import a function from another module in Python?
+
+from ... import ...
+
 #### How to import a function from another module in JavaScript?
+
+
 
 ### Functional
 #### What is recursion?
@@ -121,8 +178,6 @@ SELECT * FROM address WHERE city = 'Miskolc'
 
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
 
-
-
 enable Change Tracking: 
 
 ALTER DATABASE AdventureWorks2012   SET CHANGE_TRACKING = ON   (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
@@ -168,6 +223,9 @@ HTML
 ### Javascript
 
 #### What is javascript?
+
+
+
 #### When to use AJAX? Bring examples of its usage.
 #### What is DOM and how to manipulate it from Javascript?
 #### What are events and how/why to use them in Javascript?
@@ -183,6 +241,9 @@ HTML
 #### How can you move changes from one branch to another in GIT?
 #### How does a VCS help with code reviews?
 #### What is your favorite git command? Why?
+
+git push
+
 #### What does remote/local mean in Git? 
 
 ### DevOps
@@ -224,6 +285,9 @@ Domain Name Server
 #### What is a web server?
 #### Explain the client-server architecture.
 #### What would you use a session for?
+
+log in page
+
 #### What would you use a cookie for?
 
 ## Software Development Methodologies

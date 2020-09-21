@@ -19,11 +19,12 @@ delete or remove elements - del() - even can delete one or more elements (referr
 remove() - , clear() - empties the whole list, pop() - removes the last item if the index is not provided
 List methods:
 List comprehension - a method to create a new list:
+
 e.g pow2 = [2**x for x in range(10)]
 
 #### What is the difference between a list/array and a set?
 
-List: a collection which is ordered and changeable. Allows duplicate members. Indexing starts with zero. lists are written with square brackets ( []).
+List: a collection which is ordered and changeable. Allows duplicate members. Indexing starts with zero. Lists are written with square brackets ( []).
 
 Array: An array can hold many values under a single name, and you can access the values by referring to an index number. Python does not have built-in support for Arrays, but they can be used as lists.
 
@@ -58,19 +59,15 @@ if we want to merge 2 dictionaries, we can use the + sign: dict_a + dict_b = dic
 ### Algorithms
 
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
-
+```Python
 def recur_fibo(n):
-
-​    if n <= 1:
-
-​        return n
-
-​    else:
-
-​        return(recur_fibo(n-1) + recur_fibo(n-2))
-
+    if n <= 1:
+    	return n
+    else:
+        return(recur_fibo(n-1) + recur_fibo(n-2))
+```
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
-
+```Python
 def max(values_list):
     values_list = [1,2,3,4,5,3]
     max_value = None
@@ -80,28 +77,21 @@ def max(values_list):
         elif value > max_value:
             max_value = value
     return max_value
-
+```
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
-
+```Python
 list = [15, 9, 55, 41, 35, 20, 62, 49]
 
 def list_average(list):
-
 ​    sum = 0
-
 ​    count = 0
-
 ​    for i in list:
-
 ​        sum = sum + i
-
 ​        count = count + 1
-
 ​    avg = sum / count
-
 ​    return avg
-
 print("The average is, " + str(list_average(list)))
+```
 
 #### What do we call an *in-place* sort?
 
@@ -113,6 +103,7 @@ There are other methods beside these.
 
 e.g. the "bubble-sort", which sorts the list element-by-element
 
+```Pyhton
 numbers = [1, 2, 56, 32, 51, 2, 8, 92, 15]
 i = 0
 j = 0
@@ -122,6 +113,9 @@ for i in range(lenght):
     for j in range(1, lenght - i):
         if numbers[j-1] > numbers[j]:
             (numbers[j-1], numbers[j]) = (numbers[j], numbers[j-1])
+```	    
+  
+	    
 
 #### Explain an algorithm which sorts a list!
 
@@ -161,8 +155,10 @@ STACK OVERFLOW:
    This can happen e.g. when there is an excessively deep or infinitive recursion in a program
 
    e.g.
+  ´´Ṕython
    def foo():
    	return foo()
+´´´
 
 #### What are the main parts of a function?
 
@@ -233,11 +229,8 @@ mutable objects: lists, dictionaries, sets
 immutable objects: bools, integers, floats, tuples, strings, (frozensets)
 
 #### What is conditional expression in Python?
-
 if Statement:
-
 e.g. if <expression>:
-
 ​	<statement>
 
 The expression is evaluated in Boolean contexts - if the expression is true, then the statement will  be executed. If expression is false, then statement is skipped and not executed.
@@ -292,7 +285,7 @@ Once we have a ~, all the arguments to its right have to have default values.
    e.g. 
 
    names = ["Monica", "Luke", "Steve", "John"]
-
+´´Ṕython
    def greet(*names):
 
    ​	for name in names:
@@ -300,6 +293,7 @@ Once we have a ~, all the arguments to its right have to have default values.
    ​		print("Hello", name)
 
    greet("Monica", "Luke", "Steve", "John")
+´´´
 
 #### What is variable shadowing? (context: variable scope)
 
@@ -328,7 +322,7 @@ lifetime of variables: and enclosed variable lifetime is between it is defined a
 An iterable is an object capable of returning its members one by one. Said in other words, an iterable is anything that you can loop over with a for loop in Python.
 
 e.g.
-
+´´Ṕython
 list = [15, 9, 55]
 
 sum = 0
@@ -336,6 +330,7 @@ sum = 0
 for i in list:
 
 ​	sum = sum + i
+´´
 
 iterable = > i is for the indexes of the elements of the list
 
