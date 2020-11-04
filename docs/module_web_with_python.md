@@ -5,36 +5,32 @@
 ### Clean code
 
 #### Point out 5 suggestions, how to format an SQL query!
-
-SELECT * FROM tablename
-
-WHERE id = 1
-
-GROUP BY name
-
-ORDER BY name ASC
-
-- the order of the verbs
-
-- "ORDER BY" id where it is possible
+- queries should be written in multiple lines (more readable)
+- SELECT ... AS or ALIAS (naming convention)
+- customized case-use (e.g. verbs with uppercase, table-names with lowercase)
+- not to forget the ; at the end of the query
+- in a SELECT use IN instead of OR if there are multiple choices (e.g. SELECT FROM actors WHERE name IN ...)
 
 #### What layers can you name in a simple web application?
-
 Three layer model: Presentation layer, Business layer, Data layer
 
 ### Error handling
 #### What error can occur, when an array does not have an element on the requested index?
-
-
+If I want to pass an item of an array with a non-existing index-number (in console.log for example), 
+the output is "nondefined", as the item is not part of the array.
 
 #### What is the “finally” block, and how would you use it?
-#### Why should we catch special exception types?
+The try/catch/finally statement handles some or all of the errors that may occur in a block 
+of code, while still running code.
+the finally statement lets you execute code after try and catch, regardless of the result.
 
-First of all, in order to make the website user friendly. That means if there are some semantic errors - not enough letters in a password, not the right format, if a password is used already it is good to know about it. 
+#### Why should we catch special exception types?
+The special exceptions are caught in order to make the website user friendly. 
+That means if there are some semantic errors - not enough letters in a password, not the right format, 
+if a password is used already it is good to know about it. 
 
 ### Security
 #### What is SQL injection? How to protect an application against it?
-
 hashing the password
 
 #### What is XSS? How to protect an application against it?
@@ -409,8 +405,39 @@ log in page
 ## Software Development Methodologies
 
 #### What kind of software development methodologies do you know? What are the main features of these?
+
+Waterfall methodology: 
+
+Agile SDM (software development methodology): Centered round the idea of iterative development, where requiremenets and solutions evolve through collaboration among self-organizing cross-functional teams 
+
+DevOps deployment methodology:
+
+Rapid application development: 
+
 #### What are the SCRUM roles?
+
+product owner:
+
+development team: 
+
+Scrum master:
+
 #### What are the SCRUM ceremonies?
+
+Sprint planning, daily scrum, sprint review and sprint retrospective
+
 #### What are the SCRUM artifacts?
+
+Scrum describes three primary artifacts: 
+
+the Product Backlog (list of tasks), the Sprint Backlog (list of everything that the team commits to achieve in a given sprint), and the Product Increment (the product upon which the team had agreed to complete by the end of the sprint - fully tested and fully approved)
+
 #### What is the main goal of a retrospective meeting?
+
+It is an opportunity for the scrum team to assess its performance and improve itself.
+
 #### Explain, when would you recommend to use the waterfall methodology?
+
+The waterfall methodology is a breakdown of project activities into linear sequential phases, where each phase depends on the deliverables of the previous one and corresponds to a specialization of tasks. 
+
+This method is mainly used in the areas of engineering design (where each phase depends on the previous one). In software development it tends to be among the less flexible approaches.
