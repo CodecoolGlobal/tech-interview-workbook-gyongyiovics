@@ -8,7 +8,7 @@
 - queries should be written in multiple lines (more readable)
 - SELECT ... AS or ALIAS (naming convention)
 - customized case-use (e.g. verbs with uppercase, table-names with lowercase)
-- not to forget the ; at the end of the query
+- not to forget the ";" sign at the end of the query
 - in a SELECT use IN instead of OR if there are multiple choices (e.g. SELECT FROM actors WHERE name IN ...)
 
 #### What layers can you name in a simple web application?
@@ -28,8 +28,7 @@ the finally statement lets you execute code after try and catch, regardless of t
 
 #### Why should we catch special exception types?
 The special exceptions are caught in order to make the website user friendly. 
-That means if there are some semantic errors - not enough letters in a password, not the right format, 
-if a password is used already it is good to alert the user about them. 
+That means if there are some semantic errors - not enough letters in a password, not the right format, if a password is used already it is good to alert the user about them. 
 
 ### Security
 #### What is SQL injection? How to protect an application against it?
@@ -56,7 +55,7 @@ Possible ways of defense: filtering the input on arrival, encoding the data on o
 
 #### How to properly store passwords?
 
-hashed and salted, and in a database on the computer which cannot be read by others
+We can properly store passwords by hashing and salting, and in a database on the computer which cannot be read by others
 
 #### What is HTTPS?
 
@@ -69,21 +68,49 @@ Encryption: ~ is a process which transforms the original information into an unr
 Decryption: ~ is a process of converting encoded/encrypted data in a form that is readable and understood by a human or a computer.
 
 #### What is hashing?
+
+**Hashing** is an algorithm performed on data such as a file or message to produce a number called a **hash** (sometimes called a checksum). The **hash** is used to verify that data is not modified, tampered with, or corrupted. In other words, you can verify the data has maintained integrity.
+
 #### What is the difference between encryption and hashing? When would you use which?
+
+Hashing is used to validate the integrity of the content by detecting all modifications and thereafter changes to a hash output. Encryption encodes data for the primary purpose of maintaining data confidentiality and security. It requires a private key to reversible function encrypted text to plain text.
+
+In short, encryption is a two-way function that includes [encryption and decryption](https://www.ssl2buy.com/wiki/what-is-encryption-and-decryption/) whilst hashing is a one-way function that changes a plain text to a unique digest that is irreversible.
+
+hashing is used for digital signatures, forms of authentication
+
+encryption is used in an online-correspondence, transmitting financial data 
+
 #### What encryption methods do you know?
+
+Hashing - creates a unique, fixed-length signature for a message or data set
+
+Symmetric encryption method - private-key cryptography. Anyone with access to the key can decrypt the data. Using this method, a sender encrypts the data with one key, sends the data, and then the receiver uses the key to decrypt the data.
+
+Asymmetric encryption method - public-key cryptography. This method uses two keys for encryption or decryption  (giving it the potential to be more secure). With this method, a public key freely available to everyone is used to encrypt messages, and a different, private key is used by the recipient to decrypt messages.
+
 #### What hashing methods do you know?
+
+Hash() function in Python.
+
+Other methods: MD5, SHA-1, SHA-2, SHA-3, Whirlpool, BLAKE2
+
 #### How/where would you store sensitive data (like db password, API key, ...) of your application?
 
-session, where it is stored only for a period of time
+- store the data in a portable device, file
+- use encryption (e.g. the hash() method)
 
 ## Computer science
 
 ### Algorithms
 
 #### What is the difference between Stack and Queue data structure?
-#### What is BubbleSort? Describe the main logic of this sorting algorithm.
 
-https://www.w3resource.com/javascript-exercises/javascript-function-exercise-24.php
+A stack is a linear data structure in which elements can be inserted and deleted only from one side of the list, called the top.
+
+The **queue data structure** follows the FIFO (First In First Out) principle, i.e. the element inserted at first in the list, is the first element to be removed from the list.
+
+#### What is BubbleSort? Describe the main logic of this sorting algorithm.
 
 ```
 let bubbleSort = (inputArr) => {
@@ -113,20 +140,49 @@ let min = Math.min.apply(null, arr),
     max = Math.max.apply(null, arr);
 ```
 
-
-
 The more complicated but nicer way:
 
+```js
+function arrayMax(array) {
+  return array.reduce((a, b) => Math.max(a, b));
+}
 
+function arrayMin(array) {
+  return array.reduce((a, b) => Math.min(a, b));
+}
+```
 
 
 
 #### Explain the process of calculating the average value in an array of numbers!
 
+const grades = [80, 77, 67, 4, 56];
+
+let total = 0;
+
+for (let i = 0; i <grades.length; i++) {
+
+​	total += grades[i];
+
+}
+
+let avg = total / grades.length;
+
+
+
 #### What is Big O complexity? Explain time and space complexity!
+
+Big O notation is used in computer science to describe the performance or complexity of an algorithm. Big O specifically describes the worst-case scenario, and can be used to describe the execution time required or the space used by an algorithm. It is hard to pin down the exact runtime required by an algorithm, it depends on what processor you use, what other programs the computer is running.
+
+So instead of calculating that, we use a concept to see ***how quickly the runtime grows\****.* Imagine when we write a piece of code, we would more likely end up in refactoring it not just because we want to keep the application DRY, but we want to make sure the efficiency of our code, which is directly related to user experience.
+
 #### Explain the process of calculating the average value in a list of numbers!
 
-add up the values of the numbers, then divide the number with the length of the list
+let sum = 0;
+
+for (let i = 0; i < myArray.length; i++) {
+
+sum += parseInt(myArray[i], 10);}
 
 ### Procedural
 #### How the CASE condition works in SQL?
@@ -150,15 +206,54 @@ END
 
 
 #### How the switch-case condition works in JavaScript?
+
+switch(*expression*) {
+ case *x*:
+  *// code block
+\*  break;
+ case *y*:
+  *// code block
+\*  break;
+ default:
+   // *code block*
+}
+
 #### How to achieve a switch-case-like structure in Python?
+
+I can achieve it with if-elif-else conditions or with a logical operator.
+
+E.g. for if-elif-else code:
+
+a = 200
+b = 33
+if b > a:
+ print("b is greater than a")
+elif a == b:
+ print("a and b are equal")
+else:
+ print("a is greater than b")
+
+E.g. for a code with logical operators:
+
+a = 200
+b = 33
+c = 500
+if a > b or a > c:
+ print("At least one of the conditions is True")
+
 #### Explain variable scoping in Python!
+
+Local scope: A variable created inside a function belongs to the *local scope* of that function, and can only be used inside that function.
+
+Global scope: A variable created in the main body of the Python code is a global variable and belongs to the global scope. Global variables are available from within any scope, global and local. 
+
 #### What’s the difference between const and var in JavaScript?
 
-var
+var: Before 2015, using the `var` keyword was the only way to declare a JavaScript variable. The 2015 version of JavaScript (ES6 - ECMAScript 2015) allows the use of the `const` keyword to define a variable that cannot be reassigned, and the `let` keyword to define a variable with restricted scope.
 
-len
+len: variables declared with the ~ keyword can have Block scope. That means the variables declared inside a block cannot be accessed from outside the block. Redeclaring a variable with ~, in another scope, or in another block is allowed.
 
-const
+const: Constants are block-scoped, much like variables declared using the `let` keyword. The value of a constant can't be changed through reassignment, and it can't be redeclared.
 
 #### How the list comprehension looks like in Python?
 
@@ -188,7 +283,7 @@ In this case, the output is 'yes', as the statement is true: 19 is bigger than 1
 
 #### How to import a function from another module in Python?
 
-from ... import ...
+from main.py import my_function
 
 #### How to import a function from another module in JavaScript?
 
@@ -204,19 +299,162 @@ import {dom} from "./dom.js";
 
 ### Functional
 #### What is recursion?
+
+The idea is to represent a problem in terms of one or more smaller problems, and add one or more base conditions that stop the recursion. 
+
+For example, we compute factorial n if we know factorial of (n-1). The base case for factorial would be n = 0. We return 1 when n = 0. 
+
 #### Write a recursive function which calculates the Fibonacci numbers!
+
+In python:
+
+```html
+def recur_fibo(n):
+   if n <= 1:
+       return n
+   else:
+       return(recur_fibo(n-1) + recur_fibo(n-2))
+
+nterms = 10
+
+# check if the number of terms is valid
+if nterms <= 0:
+   print("Plese enter a positive integer")
+else:
+   print("Fibonacci sequence:")
+   for i in range(nterms):
+       print(recur_fibo(i))
+```
+
+In JavaScript:
+
+function fibonacci(num, memo) {
+
+memo = memo || {};
+
+if (memo[num]) return memo[num];
+
+if (num <= 1) return 1;
+
+return memo[num] = fibonacci(num-1, memo) + fibonacci(num-2, memo);
+
+}
+
 #### How to store a function in a variable in Python?
+
+Set a variable to a function and then use the variable as the function's name
+
+def cube(number):
+
+​	return number**3
+
+make_cube = cube (without the parentheses)
+
 #### List the ways of defining a callable logical unit in JavaScript!
+
+- Function expression => arrow function
+
+- Function in object literal - concise method syntax
+
+- Constructor - class
+
+- Generator functions and generator methods
+
+- Function declaration => const + arrow function
+
+- IIFE - immediately invokable function expression (
+
+  ```
+  function demoFunction(){
+  
+    alert("This is the function Definition");
+  
+  }
+  ```
+
+  )
+
+  
+
 #### What is an event listener? How to attach one?
+The `addEventListener()` method attaches an event handler to the specified element.
+
+The `addEventListener()` method attaches an event handler to an element without overwriting existing event handlers.
+
+You can add many event handlers to one element.
+
+You can add many event handlers of the same type to one element, i.e two "click" events.
+
+You can add event listeners to any DOM object not only HTML elements. i.e the window object.
+
+The `addEventListener()` method makes it easier to control how the event reacts to bubbling.
+
+When using the `addEventListener()` method, the JavaScript is separated from the HTML markup, for better readability and allows you to add event listeners even when you do not control the HTML markup
+
 #### How to trigger an event in JavaScript?
+
+We can trigger an event by simulating a click on a checkbox using DOM methods:
+
+```js
+function simulateClick() {
+  const event = new MouseEvent('click', {
+    view: window,
+    bubbles: true,
+    cancelable: true
+  });
+  const cb = document.getElementById('checkbox'); 
+  const cancelled = !cb.dispatchEvent(event);
+
+  if (cancelled) {
+    // A handler called preventDefault.
+    alert("cancelled");
+  } else {
+    // None of the handlers called preventDefault.
+    alert("not cancelled");
+  }
+}
+```
+
 #### What is a callback function? Tell some examples of its usage.
+
+A callback is a function passed as an argument to another function.
+
+E.g.
+
+function myDisplayer(some) {
+ document.getElementById("demo").innerHTML = some;
+}
+
+function myCalculator(num1, num2, myCallback) {
+ let sum = num1 + num2;
+ myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);
+
+Callbacks can be used in asynchronous functions, where one function has to wait for another function (e.g. waiting for a file to load).
+
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
 
-decorator is a function within a function
+A decorator takes in a function, adds some functionality  and returns it.
 
-@app.route("/")
+```
+def first(msg):
+    print(msg)
+
+
+first("Hello")
+
+second = first
+second("Hello")
+```
+
+
 
 #### What is the difference between synchronous and asynchronous execution?
+
+Synchronous or *Synchronized* means "connected", or "dependent" in some way. In other words, two synchronous tasks must be aware of one another, and one task must execute in some way that is dependent on the other, such as wait to start until the other task has completed.
+Asynchronous means they are totally independent and neither one must consider the other in any way, either in the initiation or in execution.
 
 ## Programming languages
 
@@ -224,7 +462,7 @@ decorator is a function within a function
 
 #### How can you connect your application to a database server? What are the possible ways?
 
-postgresql
+postgresql, DataGrip
 
 #### When do you use the DISTINCT keyword in SQL?
 
@@ -234,9 +472,9 @@ if I want to return (SELECT) different items in a database
 
 WHERE is a filter, with which I can give a condition to a query
 
-GROUP BY 
+GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country". The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.
 
-HAVING is a filter/condition
+ The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
 
 ORDER BY is can order the query results by a number 
 
@@ -244,31 +482,102 @@ ORDER BY is can order the query results by a number
 
 COUNT, SUM, AVG, MAX or MIN
 
+The following statement use the `AVG()` function to return the average list price of all products in the products table:
+
+```html
+SELECT
+    AVG(list_price) avg_product_price
+FROM
+    production.products;
+```
+
+The following statement uses the `COUNT()` function to return the number of products whose price is greater than 500:
+
+```html
+SELECT
+    COUNT(*) product_count
+FROM
+    production.products
+WHERE
+    list_price > 500;
+```
+
+The following statement uses the [MAX()](https://www.sqlservertutorial.net/sql-server-aggregate-functions/sql-server-max/) function to return the highest list price of all products:
+
+```htnl
+SELECT
+    MAX(list_price) max_list_price
+FROM
+    production.products;
+```
+
 #### What kind of JOIN types do you know in SQL? Could you give examples?
 
-[
-SQL Joins - W3Schoolswww.w3schools.com › sql › sql_join](https://www.w3schools.com/sql/sql_join.asp)LEFT or RIGHT JOIN, FULL JOIN, INNER JOIN
+INNER JOIN - returns records that have matching values in both tables
+
+LEFT JOIN - returns all records from the left table, and the matched records from the right table
+
+RIGHT JOIN - returns all records from the right table, and the matched records from the left table
+
+FULL JOIN - returns all records when there is a match in either left or right table
+
+e.g.
+
+SELECT column_name(s) FROM table1
+
+LEFT JOIN table2 ON table1.column_name = table2.column_name;
+
+(in this case, "table2" is the right table, therefore all of the columns are included of table1 and only the matched records from table2)
 
 #### What are the constraints in sql?
+
+SQL constraints are used to specify rules for the data in a table.
+
+Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraint and the data action, the action is aborted.
+
+Constraints can be column level or table level. Column level constraints apply to a column, and table level constraints apply to the whole table.
+
 #### What is a cursor in SQL? Why would you use one?
 
-a QUERY in SQL through python, to fetch data from a database table
+Execute a SQL query agains the database.
+
+E.g.:
+
+```
+conn = db.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM Metatable WHERE TableName='%s'" % clsname)
+    res = cursor.fetchall()
+    ...
+    cursor.close()
+    conn.rollback()
+```
 
 #### What are database indexes? When to use?
 
-primary key, foreign key
+Primary key: The PRIMARY KEY constraint uniquely identifies each record in a table. Primary keys must contain UNIQUE values, and cannot contain NULL values. A table can have only ONE primary key; and in the table, this primary key can consist of single or multiple columns (fields).
+
+Foreign key: A FOREIGN KEY is a key used to link two tables together. A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table. The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.
 
 #### What are database transactions? When to use?
 
 BEGIN TRANSACTION, SET TRANSACTION, COMMIT, ROLLBACK, SAVEPOINT, RELEASE SAVEPOINT 
 
+A transaction should be used when you need a set of changes to be processed completely to consider the operation complete and valid. In other words,  it checks whether only a portion executes successfully, will that result in incomplete or invalid data being stored in your database.
+
+For example, if you have an insert followed by an update, what happens if the insert succeeds and the update fails? If that would result in incomplete data (in this case, an orphaned record), you should wrap the two statements in a transaction to get them to complete as a "set".
+
 #### What kind of database relations do you know? How to define them?
 
-one-to-one,
+There are three types:
 
-one-to-many,
+one-to-one: a row in table A can have only one matching row in table B and vice versa.
 
-many-to-many
+one-to-many or many-to-one: This is the most common relationship type. In this type of relationship, a row in table A can have many matching rows in table B,  but a row in table B can have only one matching row in table A. This can also be a Many-to-One relationship depending on which way we look at it.
+
+many-to-many: in a ~ relationship, a row in table A can have many matching rows in table B, and vice versa.
+
+In this case we can use an intermediary table or "junction table" which links the table A with table B with one key from each.
 
 #### You have a table with an “address” field which contains data like “3525, Miskolc, Régiposta 9.” (postcode, city, street name and address). How would you query all records related to Miskolc?
 
@@ -276,13 +585,11 @@ SELECT * FROM address WHERE city = 'Miskolc';
 
 #### How would you keep track of what kind of data has changed after an UPDATE or DELETE operation in a table?
 
-enable Change Tracking: 
+We can use the Change Tracking: 
 
 ALTER DATABASE AdventureWorks2012   SET CHANGE_TRACKING = ON   (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
 
-
-
-or by the git history
+Otherwise, we can use the git history.
 
 ### HTML & CSS
 
@@ -382,36 +689,81 @@ username and password dependencies
 - **Credible**: Users must trust and believe what you tell them
 
 #### What is XML, XSLT, DTD?
+
+XML: **Extensible Markup Language** (**XML**) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. The design goals of XML emphasize simplicity, generality and usability across the Internet.
+
+XSLT: **Extensible Stylesheet Language Transformations (XSLT)** is a language for transforming XML documents into other XML documents, or other formats such as HTML for web pages, plain text or XSL formatting objects. 
+
+DTD: Document Type Definition (DTD) is a set of markup declarations that define a document type for an SGML-family markup language (GML, SGML, XML, HTML)
+
 #### What is the difference between HTML and XML?
+
+**Difference between HTML and XML:** There are many differences between HTML and XML. These important differences are given below:
+
+|                      HTML                       |                             XML                              |
+| :---------------------------------------------: | :----------------------------------------------------------: |
+| HTML stands for **Hyper Text Markup Language.** |        XML stands for **extensible Markup Language.**        |
+|                 HTML is static.                 |                       XML is dynamic.                        |
+|           HTML is a markup language.            |      XML provides framework to define markup languages.      |
+|          HTML can ignore small errors.          |                  XML does not allow errors.                  |
+|           HTML is not Case sensitive.           |                    XML is Case sensitive.                    |
+|         HTML tags are predefined tags.          |               XML tags are user defined tags.                |
+|    There are limited number of tags in HTML.    |                   XML tags are extensible.                   |
+|      HTML does not preserve white spaces.       |             White space can be preserved in XML.             |
+|   HTML tags are used for displaying the data.   | XML tags are used for describing the data not for displaying. |
+|    In HTML, closing tags are not necessary.     |             In XML, closing tags are necessary.              |
 
 ### Javascript
 
 #### What is javascript?
 
-~ is a programming language, that conforms to the ECMAScript specification.
-
-It is high-level, often just-in-time compiled, and multiparadigm.
-
-It is used for websites' client-side page behavior
+~ is a programming language, that conforms to the ECMAScript specification. It is high-level, often just-in-time compiled, and multiparadigm. It is used for websites' client-side page behavior
 
 #### When to use AJAX? Bring examples of its usage.
 
-If you do not want to load the whole page when a button is pushed or a request is sent from another page
+If you do not want to load the whole page when a button is pushed or a request is sent from another page.
+
+For example: form validation, comments, filtering data, surveys and polls
 
 #### What is DOM and how to manipulate it from Javascript?
 
-Document Object Model - JS can change its elements, attributes and styles;
+Document Object Model - JavaScript can change its elements, attributes and styles;
 
-JS also can add create, remove these elements, and JS can react to all existing HTML events on a page
+JavaScript also can add, create, remove these elements, and JS can react to all existing HTML events on a page
 
 #### What are events and how/why to use them in Javascript?
+
+HTML events are "things" that happen to HTML elements. When JavaScript is used on HTML pages, JavaScript can react on these events.
+
+E.g.
+
+<button onclick="document.getElementById('demo').innerHTML=Date()">The time is?</button>
+
 #### What is event bubbling/capturing? How would you use it?
 
-Callback hell
+When an event happens on an element, it first runs the handlers on it, then on its parents, then all the way up on other ancestors.
+
+E.g.
+
+<style>   body * {     margin: 10px;     border: 1px solid blue;   } </style>  <form onclick="alert('form')">FORM   <div onclick="alert('div')">DIV     <p onclick="alert('p')">P</p>   </div> </form>
+
+In this case a click on the inner <p> first runs onclick:
+
+on that <p> tag
+
+then on the outer <div>
+
+then on the outer <form>, and so on upwards till the document object.
 
 #### What is JSON and how do we use it?
 
+JSON: JavaScript Object Notation. ~ is a syntax for storing and exchanging data.
 
+When exchanging data between a browser and a server, the data can only be text.
+
+JSON is text, and we can convert any JavaScript object into JSON, and send JSON to the server. We can also convert any JSON received from the server into JavaScript objects. This way we can work with the data as JavaScript objects, with no complicated parsing and translations.
+
+E.g. in flask, the jsonify() function creates a response with the JSON representation of the given arguments with an application/json mimetype. The arguments to this function are the same as to the dict constructor.
 
 ## Software engineering
 
@@ -451,6 +803,8 @@ I can do this via the terminal, through the pyCharm IDE  or through the github r
 
 #### How does a VCS help with code reviews?
 
+In computer [software engineering](https://en.wikipedia.org/wiki/Software_engineering), revision control is any kind of practice that tracks and provides control over changes to [source code](https://en.wikipedia.org/wiki/Source_code). [Software developers](https://en.wikipedia.org/wiki/Software_developer) sometimes use revision control software to maintain documentation and [configuration files](https://en.wikipedia.org/wiki/Configuration_file) as well as source code.
+
 ### 1. Clone the Repository
 
 First, you’ll clone the repository where you will contribute code onto your local workstation. Cloning is common in Git. It’s done to create a local copy of the repository.
@@ -471,7 +825,9 @@ In most systems, the path to getting your code merged is through a code review. 
 
 The "git push". This is my favorite because whenever I use it that means I have finished a task in the given project - or finished up a feature.
 
-#### What does remote/local mean in Git? 
+#### What does remote/local mean in Git?
+
+Remote repositories are versions of your project that are hosted on the Internet or network somewhere. You can have several of them, each of which generally is either read-only or read/write for you. Collaborating with others involves managing these remote repositories (repos) and pushing, pulling data to and from them when you need to share work.
 
 ### DevOps
 
